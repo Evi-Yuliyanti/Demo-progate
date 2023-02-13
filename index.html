@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Demo DOM</title>
+</head>
+<style >
+	body {
+		background-color: #FFF2F2;
+	}
+	#container{
+		background-color: #7286D3;
+		border: 2px solid orange;
+		width: 50%;
+		margin: 0 auto;
+		color: white;
+		height: 500px;
+		padding: 5px;
+	}
+	h1 {
+		text-align: center;
+	}
+	button {
+		width: 100px;
+		height: 25px;
+		border-radius: 5px;
+		border: none;
+		background-color: #FFEBAD;
+	} 
+	button:hover {
+		background-color: red;
+		box-shadow: 2px 2px 2px darkred;
+		color: white;
+	}
+</style>
+<body>
+	<div id="container">
+			<h1>Get a FizzBuzz Result!</h1>
+	<label>Type a number:</label>
+	<input type="number" id="input_number">
+	<button id="tombol">Click here!</button>
+		
+	<hr> 
+	</div>
+	
+
+	<script>
+		const button = document.getElementById('tombol'). addEventListener("click", tampilkan_number);
+
+
+			function tampilkan_number(){
+			var number = document.getElementById('input_number').value;
+			
+			var x = document.createElement("p");
+			if(number < 1 || number === 0) {
+				const text = document.createTextNode('Invalid Input!')
+			x.appendChild(text);
+			x.style.color='#fa0202';
+
+			document.getElementById("container") .appendChild(x);
+
+			}
+
+			else if(number % 3 ===0 && number % 5 ===0){
+			const text = document.createTextNode('FizzBuzz!')
+			x.appendChild(text);
+			document.getElementById("container") .appendChild(x);
+
+			}else if(number % 3 ===0){
+				const text = document.createTextNode('Fizz!')
+				x.appendChild(text);
+				document.getElementById("container") .appendChild(x);
+			} else if(number % 5 ===0){
+				const text = document.createTextNode('Buzz!')
+				x.appendChild(text);
+				document.getElementById("container") .appendChild(x);
+			}
+			else {
+				const text = document.createTextNode(number)
+				x.appendChild(text);
+				document.getElementById("container") .appendChild(x);
+			}
+			
+			}
+
+	</script>
+
+
+</body>
+</html>
